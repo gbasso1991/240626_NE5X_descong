@@ -436,7 +436,7 @@ plt.grid()
 plt.ylabel(r'$\tau$ (s)')
 plt.xlabel('Indx')
 plt.title(identif_3)
-plt.savefig('tau_'+identif_3+'.png',dpi=300)
+plt.savefig('tau_vs_T_'+identif_3+'.png',dpi=300)
 plt.show()
 #CICLOS
 archivos_ciclos_3 = [f for f in os.listdir(dir_3) if  fnmatch.fnmatch(f, '*promedio*')]
@@ -466,9 +466,9 @@ archivos_resultados = [f for f in os.listdir(dir_4) if  fnmatch.fnmatch(f, '*res
 archivos_resultados.sort()
 filepaths = [os.path.join(dir_4,f) for f in archivos_resultados]
 
-meta_1,files_1,time_1,temperatura_4_1,Mr_1,Hc_1,campo_max_1,mag_max_1,xi_M_0_1,frecuencia_fund_4_1,magnitud_fund_4_1,dphi_fem_4_1,SAR_4_1,tau_4_1,N1 = lector_resultados(filepaths[0])
-meta_2,files_2,time_2,temperatura_4_2,Mr_2,Hc_2,campo_max_2,mag_max_2,xi_M_0_2,frecuencia_fund_4_2,magnitud_fund_4_2,dphi_fem_4_2,SAR_4_2,tau_4_2,N2 = lector_resultados(filepaths[1])
-meta_3,files_3,time_3,temperatura_4_3,Mr_3,Hc_3,campo_max_3,mag_max_3,xi_M_0_3,frecuencia_fund_4_3,magnitud_fund_4_3,dphi_fem_4_3,SAR_4_3,tau_4_3,N3 = lector_resultados(filepaths[2])
+meta_1,files_1,time_4_1,temperatura_4_1,Mr_1,Hc_1,campo_max_1,mag_max_1,xi_M_0_1,frecuencia_fund_4_1,magnitud_fund_4_1,dphi_fem_4_1,SAR_4_1,tau_4_1,N1 = lector_resultados(filepaths[0])
+meta_2,files_2,time_4_2,temperatura_4_2,Mr_2,Hc_2,campo_max_2,mag_max_2,xi_M_0_2,frecuencia_fund_4_2,magnitud_fund_4_2,dphi_fem_4_2,SAR_4_2,tau_4_2,N2 = lector_resultados(filepaths[1])
+meta_3,files_3,time_4_3,temperatura_4_3,Mr_3,Hc_3,campo_max_3,mag_max_3,xi_M_0_3,frecuencia_fund_4_3,magnitud_fund_4_3,dphi_fem_4_3,SAR_4_3,tau_4_3,N3 = lector_resultados(filepaths[2])
 
 taus_4=np.array([ufloat(np.mean(tau_4_1),np.std(tau_4_1)),ufloat(np.mean(tau_4_2),np.std(tau_4_2)),ufloat(np.mean(tau_4_3),np.std(tau_4_3))])*1e9
 SARs_4=np.array([ufloat(np.mean(SAR_4_1),np.std(SAR_4_1)),ufloat(np.mean(SAR_4_2),np.std(SAR_4_2)),ufloat(np.mean(SAR_4_3),np.std(SAR_4_3))])
@@ -493,7 +493,7 @@ plt.grid()
 plt.ylabel(r'$\tau$ (s)')
 plt.xlabel('Indx')
 plt.title(identif_4)
-plt.savefig('tau_'+identif_4+'.png',dpi=300)
+plt.savefig('tau_vs_T_'+identif_4+'.png',dpi=300)
 plt.show()
 #%CICLOS
 archivos_ciclos_4 = [f for f in os.listdir(dir_4) if  fnmatch.fnmatch(f, '*promedio*')]
@@ -842,7 +842,14 @@ for ax in [ax1,ax2]:
 plt.savefig('tau_SAR_vs_T_all_cong_s_campo.png',dpi=300)
 
 
-#%%
+#%% AJUSTES LINEALES TAU_i TAU_f
+
+def lineal(x,a,b):
+    return a*x+b
+
+
+
+
 # ax3.plot(tau_3_1*1e9,'.-',label='1')
 # ax3.plot(tau_3_2*1e9,'.-',label='2')
 # ax3.plot(tau_3_3*1e9,'.-',label='3')
