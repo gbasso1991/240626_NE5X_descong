@@ -426,7 +426,7 @@ print(f' tau = {tau3} ns')
 SAR3 = ufloat(np.mean([S.nominal_value for S in SARs_3]),np.std([S.nominal_value for S in SARs_3]))
 print(f' SAR = {SAR3:.2uf} W/g')
 
-fig,ax= plt.subplots(constrained_layout=True)
+fig,ax= plt.subplots(figsize=(9,5),constrained_layout=True)
 ax.plot(temperatura_3_1,tau_3_1,'.-',label='1')
 ax.plot(temperatura_3_2,tau_3_2,'.-',label='2')
 ax.plot(temperatura_3_3,tau_3_3,'.-',label='3')
@@ -445,7 +445,7 @@ filepaths_3 = [os.path.join(dir_3,f) for f in archivos_ciclos_3]
 for ac in archivos_ciclos_3:
     print(ac)
 
-fig2,ax2=plt.subplots(constrained_layout=True)
+fig2,ax2=plt.subplots(figsize=(8,6),constrained_layout=True)
 
 for i,fp in enumerate(filepaths_3):
     t,H,M,metadata=lector_ciclos(fp)
@@ -502,7 +502,7 @@ filepaths_4 = [os.path.join(dir_4,f) for f in archivos_ciclos_4]
 for ac in archivos_ciclos_4:
     print(ac)
 
-fig2,ax2=plt.subplots(figsize=(9,5),constrained_layout=True)
+fig2,ax2=plt.subplots(figsize=(8,6),constrained_layout=True)
 for i,fp in enumerate(filepaths_4):
     t,H,M,metadata=lector_ciclos(fp)
     ax2.plot(H,M,label=f'{SARs_4[i]:1f} W/g')
