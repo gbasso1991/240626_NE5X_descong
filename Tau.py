@@ -838,7 +838,7 @@ for ax in [ax1,ax2]:
     #ax.set_ylabel(r'$\tau$ (ns)')
     ax.legend(ncol=6)
     ax.grid(zorder=0)
-
+plt.xlim(-50,26)
 plt.savefig('tau_SAR_vs_T_all_cong_s_campo.png',dpi=300)
 
 
